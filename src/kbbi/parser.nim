@@ -1,5 +1,5 @@
 import std/[json, strutils]
-import ./[types, varint]
+import ./[common, types, varint]
 
 func isBlank(s: Sense): bool =
   s.text.len == 0 and s.altForm.len == 0 and s.altText.len == 0 and
@@ -28,7 +28,7 @@ proc senseToJson*(s: Sense): JsonNode =
   if s.altText.len > 0:
     result["alt_text"] = %s.altText
   if s.latin.len > 0:
-    result["latin"] = %s.latin.replace("<i>", "").replace("</i>", "")
+    result["latin"] = %s.latin.cleanLatin()
   if s.abbrev.len > 0:
     result["abbrev"] = %s.abbrev
   if s.link.len > 0:
@@ -244,7 +244,7 @@ proc parse*(data: seq[byte]): seq[Entry] =
       sense.abbrev = argStr
 
     of 23:
-      sense.latin = argStr
+      sense.latin = argStr.cleanLatin()
 
     of 24:
       chemBuf.add(argStr)

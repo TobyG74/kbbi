@@ -1,4 +1,4 @@
-const CACHE_VERSION = '1.0.0';
+const CACHE_VERSION = '1.0.1';
 const SHELL_CACHE = `kbbi-shell-v${CACHE_VERSION}`;
 
 const SHELL_ASSETS = [
@@ -8,7 +8,7 @@ const SHELL_ASSETS = [
 ];
 
 function createOfflineResponse() {
-  return new Response('Offline — halaman tidak tersedia', {
+  return new Response('Layanan tidak tersedia — berkas offline tidak ditemukan', {
     status: 503,
     statusText: 'Service Unavailable',
     headers: { 'Content-Type': 'text/plain; charset=utf-8' }
