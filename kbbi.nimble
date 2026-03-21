@@ -2,7 +2,7 @@
 
 version       = "1.0.1"
 author        = "univzy"
-description   = "KBBI - Kamus Besar Bahasa Indonesia"
+description   = "re:KBBI - Kamus Besar Bahasa Indonesia"
 license       = "MIT"
 srcDir        = "src"
 

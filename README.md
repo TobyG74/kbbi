@@ -1,6 +1,6 @@
 
 <div align="center">
-  <h1>KBBI - Kamus Besar Bahasa Indonesia</h1>
+  <h1>re:KBBI - Kamus Besar Bahasa Indonesia</h1>
   <a href="https://www.codefactor.io/repository/github/univzy/kbbi/overview/master">
     <img title="KBBI-CodeFactor" alt="KBBI-CodeFactor" src="https://img.shields.io/codefactor/grade/github/univzy/kbbi/main?color=blue&label=CodeFactor&style=flat-square">
   </a>
