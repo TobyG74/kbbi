@@ -242,6 +242,22 @@ proc main() =
       )
 
       for entry in entries:
+        if entry.see.len > 0 and entry.senses.len == 0:
+          let senseId = db.insertID(
+            sql"""INSERT INTO senses (entry_id, entry_word, entry_kind, number, pos,
+                  bahasa, bidang, ragam, markers, text, altForm, altText, latin,
+                  abbrev, link, chem) VALUES (?, ?, ?, '', '', '', '', '', '', '', '', '', '', '', '', '')""",
+            id,
+            entry.word,
+            entry.kind,
+          )
+          for xref in entry.see:
+            db.exec(
+              sql"INSERT INTO sense_xrefs (sense_id, xref_id) VALUES (?, ?)",
+              senseId,
+              xref,
+            )
+
         for sense in entry.senses:
           let senseId = db.insertID(
             sql"""
