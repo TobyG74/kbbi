@@ -4,6 +4,11 @@
   dir="ltr"
 >
   <head>
+    <script>
+      if (location.hostname === "kbbi-3ti.pages.dev") {
+        location.replace("https://kbbi.univzy.tech" + location.pathname + location.search + location.hash);
+      }
+    </script>
     <meta charset="UTF-8" />
     <meta
       name="viewport"
